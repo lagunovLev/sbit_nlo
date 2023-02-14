@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\airship.cpp" />
+    <ClCompile Include="src\background.cpp" />
+    <ClCompile Include="src\bullet.cpp" />
+    <ClCompile Include="src\button.cpp" />
+    <ClCompile Include="src\entity.cpp" />
+    <ClCompile Include="src\entitySpawner.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\gameMath.cpp" />
+    <ClCompile Include="src\ground.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\player.cpp" />
+    <ClCompile Include="src\resourceManager.cpp" />
+    <ClCompile Include="src\scenes\initGame.cpp" />
+    <ClCompile Include="src\scenes\lobby.cpp" />
+    <ClCompile Include="src\scenes\lose.cpp" />
+    <ClCompile Include="src\scenes\mainGame.cpp" />
+    <ClCompile Include="src\scenes\pause.cpp" />
+    <ClCompile Include="src\state.cpp" />
+    <ClCompile Include="src\ufo.cpp" />
+    <ClCompile Include="src\ufoBullet.cpp" />
+    <ClCompile Include="src\Values.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="deps\include\SFML\Audio.hpp" />
+    <ClInclude Include="deps\include\SFML\Config.hpp" />
+    <ClInclude Include="deps\include\SFML\GpuPreference.hpp" />
+    <ClInclude Include="deps\include\SFML\Graphics.hpp" />
+    <ClInclude Include="deps\include\SFML\Main.hpp" />
+    <ClInclude Include="deps\include\SFML\Network.hpp" />
+    <ClInclude Include="deps\include\SFML\OpenGL.hpp" />
+    <ClInclude Include="deps\include\SFML\System.hpp" />
+    <ClInclude Include="deps\include\SFML\Window.hpp" />
+    <ClInclude Include="src\airship.h" />
+    <ClInclude Include="src\background.h" />
+    <ClInclude Include="src\bullet.h" />
+    <ClInclude Include="src\button.h" />
+    <ClInclude Include="src\entity.h" />
+    <ClInclude Include="src\entitySpawner.h" />
+    <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\gameMath.h" />
+    <ClInclude Include="src\ground.h" />
+    <ClInclude Include="src\player.h" />
+    <ClInclude Include="src\resourceManager.h" />
+    <ClInclude Include="src\scenes\initGame.h" />
+    <ClInclude Include="src\scenes\lobby.h" />
+    <ClInclude Include="src\scenes\lose.h" />
+    <ClInclude Include="src\scenes\mainGame.h" />
+    <ClInclude Include="src\scenes\pause.h" />
+    <ClInclude Include="src\state.h" />
+    <ClInclude Include="src\ufo.h" />
+    <ClInclude Include="src\ufoBullet.h" />
+    <ClInclude Include="src\Values.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="deps\libs\flac.lib" />
+    <Library Include="deps\libs\freetype.lib" />
+    <Library Include="deps\libs\ogg.lib" />
+    <Library Include="deps\libs\openal32.lib" />
+    <Library Include="deps\libs\sfml-audio-d.lib" />
+    <Library Include="deps\libs\sfml-audio-s-d.lib" />
+    <Library Include="deps\libs\sfml-audio-s.lib" />
+    <Library Include="deps\libs\sfml-audio.lib" />
+    <Library Include="deps\libs\sfml-graphics-d.lib" />
+    <Library Include="deps\libs\sfml-graphics-s-d.lib" />
+    <Library Include="deps\libs\sfml-graphics-s.lib" />
+    <Library Include="deps\libs\sfml-graphics.lib" />
+    <Library Include="deps\libs\sfml-main-d.lib" />
+    <Library Include="deps\libs\sfml-main.lib" />
+    <Library Include="deps\libs\sfml-network-d.lib" />
+    <Library Include="deps\libs\sfml-network-s-d.lib" />
+    <Library Include="deps\libs\sfml-network-s.lib" />
+    <Library Include="deps\libs\sfml-network.lib" />
+    <Library Include="deps\libs\sfml-system-d.lib" />
+    <Library Include="deps\libs\sfml-system-s-d.lib" />
+    <Library Include="deps\libs\sfml-system-s.lib" />
+    <Library Include="deps\libs\sfml-system.lib" />
+    <Library Include="deps\libs\sfml-window-d.lib" />
+    <Library Include="deps\libs\sfml-window-s-d.lib" />
+    <Library Include="deps\libs\sfml-window-s.lib" />
+    <Library Include="deps\libs\sfml-window.lib" />
+    <Library Include="deps\libs\vorbis.lib" />
+    <Library Include="deps\libs\vorbisenc.lib" />
+    <Library Include="deps\libs\vorbisfile.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="deps\libs\sfml-audio-d.pdb" />
+    <None Include="deps\libs\sfml-audio-s-d.pdb" />
+    <None Include="deps\libs\sfml-graphics-d.pdb" />
+    <None Include="deps\libs\sfml-graphics-s-d.pdb" />
+    <None Include="deps\libs\sfml-main-s-d.pdb" />
+    <None Include="deps\libs\sfml-network-d.pdb" />
+    <None Include="deps\libs\sfml-network-s-d.pdb" />
+    <None Include="deps\libs\sfml-system-d.pdb" />
+    <None Include="deps\libs\sfml-system-s-d.pdb" />
+    <None Include="deps\libs\sfml-window-d.pdb" />
+    <None Include="deps\libs\sfml-window-s-d.pdb" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a2f1d8ba-a6b8-45c9-9ae0-b3b23c3abb98}</ProjectGuid>
+    <RootNamespace>sbit_nlo</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\Users\lagun\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\lagun\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\Users\lagun\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\lagun\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;sfml-network-s.lib;winmm.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)deps\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;openal32.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)deps\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)deps\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;openal32.lib;opengl32.lib;winmm.lib;sfml-audio-s.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
