@@ -6,23 +6,13 @@
 #include "mainGame.h"
 #include "lobby.h"
 
-bool Lose::bExitPressed;
-
-void Lose::bExitCallback()
-{
-    Lose::bExitPressed = true;
-}
-
 Lose::Lose(int airship_passed, int airship_killed, int ufo_killed, int ufo_passed) : airship_passed(airship_passed),
     airship_killed(airship_killed), ufo_killed(ufo_killed), ufo_passed(ufo_passed) { }
 
 void Lose::start()
 {
-    view = Game::win.getView();
-    Game::win.setView(view);
-
-    bExitPressed = false;
-    exit = Button("exit", bExitCallback, sf::Vector2f(Game::win.getSize().x / 2, Game::win.getSize().y / 2 + 50));
+    update();
+    exit = Button("exit", [&]() { bExitPressed = true; }, sf::Vector2f(view.getSize().x / 2, view.getSize().y / 2 + 50));
 }
 
 void Lose::destroy()
@@ -35,7 +25,7 @@ void Lose::input()
     sf::Event e;
     while (Game::win.pollEvent(e))
     {
-        if (exit.handleEvent(e) && bExitPressed)
+        if (exit.handleEvent(e, view) && bExitPressed)
         {
             run = false;
             ((MainGame*)(previous))->exit = true;
@@ -54,46 +44,25 @@ void Lose::input()
 
         if (e.type == sf::Event::Resized)
         {
-            exit.updatePos(sf::Vector2f(Game::win.getSize().x / 2, Game::win.getSize().y / 2 + 50));
+            exit.updatePos(sf::Vector2f(view.getSize().x / 2, view.getSize().y / 2 + 50));
         }
     }
 }
 
 void Lose::update()
 {
-    view.setSize({ static_cast<float>(Game::win.getSize().x), static_cast<float>(Game::win.getSize().y) });
-    view.setCenter(sf::Vector2f(Game::win.getSize().x / 2, Game::win.getSize().y / 2));
+    float scaleY = Game::height / Game::win.getSize().y;
+    view.setSize(scaleY * Game::win.getSize().x, Game::height);
+    view.setCenter(sf::Vector2f(view.getSize().x / 2, view.getSize().y / 2));
     Game::win.setView(view);
     ((MainGame*)previous)->updateViews();
 }
 
 void Lose::drawValues()
 {
-    int centerX = Game::win.getSize().x / 2;
-    int centerY = Game::win.getSize().y / 2 - 100;
+    int centerX = view.getSize().x / 2;
+    int centerY = view.getSize().y / 2 - 100;
     static int margin = 5;
-    
-    //Value val = Value("resources\\little_airship.png", "resources\\cross.png");
-    //val.updateValue(std::to_string(airship_killed));
-    //val.updatePosition(centerX, centerY - val.getHeight() - margin);
-    //val.draw();
-    //
-    //Value val2 = Value("resources\\little_ufo.png", "resources\\cross.png");
-    //val2.updateValue(std::to_string(ufo_killed));
-    //val2.updatePosition(centerX, centerY + val2.getHeight() + margin);
-    //val2.draw();
-    //
-    //int otstup = std::max(val.getWidth(), val2.getWidth()) + margin * 5;
-    //
-    //Value val3 = Value("resources\\little_airship.png", "resources\\little_airship.png");
-    //val3.updateValue(std::to_string(airship_passed));
-    //val3.updatePosition(Game::win.getSize().x - otstup - val3.getWidth(), margin);
-    //val3.draw();
-    //
-    //Value val4 = Value("resources\\little_ufo.png", "resources\\little_ufo.png");
-    //val4.updateValue(std::to_string(ufo_passed));
-    //val4.updatePosition(Game::win.getSize().x - otstup - val4.getWidth(), margin + val3.getY() + val3.getHeight());
-    //val4.draw();
 
     sf::Text text = sf::Text("Game over", ResourceManager::getFont("resources\\DePixelBreit.otf"), 40);
     text.setFillColor(sf::Color(0, 0, 0, 255));
@@ -108,7 +77,7 @@ void Lose::render()
     sf::RectangleShape rect;
     rect.setFillColor(sf::Color(0, 0, 0, 100));
     rect.setPosition(0, 0);
-    rect.setSize(sf::Vector2f(Game::win.getSize().x, Game::win.getSize().y));
+    rect.setSize(sf::Vector2f(view.getSize().x, view.getSize().y));
     Game::win.draw(rect);
 
     drawValues();

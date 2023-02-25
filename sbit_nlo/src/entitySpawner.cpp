@@ -36,7 +36,7 @@ void EntitySpawner::spawn()
 		timer -= 1.0f;
 
 		int index;
-		int popitka = 5;
+		int popitka = 10;
 		do {
 			index = rand() % LAYERS_COUNT;
 			popitka--;

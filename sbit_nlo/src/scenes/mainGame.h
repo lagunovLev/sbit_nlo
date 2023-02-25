@@ -15,8 +15,7 @@ class MainGame : public State
     EntitySpawner spawner;
 
     Button pause;
-    static bool bPausePressed;
-    static void bPauseCallback();
+    bool bPausePressed = false;
     void display_values();
 public:
     unsigned int ufo_killed = 0;

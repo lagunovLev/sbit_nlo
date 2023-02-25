@@ -7,7 +7,7 @@
 void InitGame::start()
 {
     srand(time(NULL));
-    Game::win.create(sf::VideoMode(1400, 900), "Game");
+    Game::win.create(sf::VideoMode(Game::width, Game::height), "Game");
     Game::win.setVerticalSyncEnabled(true);
     Game::push(new Lobby());
     run = false;

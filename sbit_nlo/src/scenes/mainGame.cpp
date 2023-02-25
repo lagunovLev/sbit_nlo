@@ -6,21 +6,13 @@
 #include "pause.h"
 #include "lose.h"
 
-bool MainGame::bPausePressed = false;
-
-void MainGame::bPauseCallback()
-{
-    bPausePressed = true;
-}
-
 void MainGame::start()
 {
     ground = Ground(ResourceManager::getTexture("resources\\grasstopwithoutair.png"), ResourceManager::getTexture("resources\\dirtfull.png"),
         sf::Vector2f(0.0f, 0.0f), 1.0f, 4.0f, worldLength);
-    view = Game::win.getDefaultView();
-    camera = Game::win.getDefaultView();
+    updateViews();
     sky = Background(ResourceManager::getTexture("resources\\sky.png"));
-    pause = Button("pause", bPauseCallback, sf::Vector2f(85.0f, 40.0f), 17, 2, "resources\\button1.png");
+    pause = Button("pause", [&]() { bPausePressed = true; }, sf::Vector2f(85.0f, 40.0f), 17, 2, "resources\\button1.png");
     player = new Player(sf::Vector2f(worldLength / 2, 0), 100, 2);
     entities.push_back(player);
     spawner = EntitySpawner(&entities, 0.2);
@@ -45,8 +37,8 @@ void MainGame::display_values()
     val2.updateValue(std::to_string(ufo_killed));
 
     int maxWidth = std::max(val.getWidth(), val2.getWidth());
-    val2.updatePosition(Game::win.getSize().x - maxWidth - margin, margin * 2 + val.getY() + val.getHeight());
-    val.updatePosition(Game::win.getSize().x - maxWidth - margin, margin);
+    val2.updatePosition(view.getSize().x - maxWidth - margin, margin * 2 + val.getY() + val.getHeight());
+    val.updatePosition(view.getSize().x - maxWidth - margin, margin);
     val2.draw();
     val.draw();
 
@@ -60,14 +52,14 @@ void MainGame::display_values()
     
 
     maxWidth = std::max(val3.getWidth(), val4.getWidth());
-    val4.updatePosition(Game::win.getSize().x - otstup - maxWidth, margin * 2 + val3.getY() + val3.getHeight());
-    val3.updatePosition(Game::win.getSize().x - otstup - maxWidth, margin);
+    val4.updatePosition(view.getSize().x - otstup - maxWidth, margin * 2 + val3.getY() + val3.getHeight());
+    val3.updatePosition(view.getSize().x - otstup - maxWidth, margin);
     val4.draw();
     val3.draw();
 
     static const int margin2 = 3;
     static const int height = 28;
-    int length = Game::win.getSize().x - margin * 2 - val4.getX();
+    int length = view.getSize().x - margin * 2 - val4.getX();
     int h = val4.getHeight() + val4.getY() + margin;
     int x = val4.getX() + margin;
 
@@ -88,7 +80,7 @@ void MainGame::input()
     sf::Event e;
     while (Game::win.pollEvent(e))
     {
-        if (pause.handleEvent(e))
+        if (pause.handleEvent(e, view))
         {
             if (bPausePressed) 
             {
@@ -101,10 +93,7 @@ void MainGame::input()
         if (e.type == sf::Event::Closed)
             run = false;
 
-        if (e.type == sf::Event::Resized)
-            sky.update(sf::Vector2f(e.size.width, e.size.height));
-
-        player->handleEvents(e);
+        player->handleEvents(e, view);
     }
     if (exit)
         Game::replace(new Lobby());
@@ -112,10 +101,12 @@ void MainGame::input()
 
 void MainGame::updateViews()
 {
-    view.setSize({ static_cast<float>(Game::win.getSize().x), static_cast<float>(Game::win.getSize().y) });
-    camera.setSize({ static_cast<float>(Game::win.getSize().x), static_cast<float>(Game::win.getSize().y) });
-    view.setCenter(sf::Vector2f(Game::win.getSize().x / 2, Game::win.getSize().y / 2));
-    camera.setCenter(sf::Vector2f(camera.getCenter().x, -(int)(Game::win.getSize().y / 2 + 1) + ground.getY()));
+    float scaleY = Game::height / Game::win.getSize().y;
+    view.setSize(scaleY * Game::win.getSize().x, Game::height);
+    view.setCenter(sf::Vector2f(view.getSize().x / 2, view.getSize().y / 2));
+
+    camera.setSize(scaleY * Game::win.getSize().x, Game::height);
+    camera.setCenter(sf::Vector2f(camera.getCenter().x, -(int)(camera.getSize().y / 2 + 1) + ground.getY()));
 }
 
 void MainGame::update()
@@ -142,7 +133,7 @@ void MainGame::render()
 {
     // objects with screen position
     Game::win.setView(view);
-    sky.draw();
+    sky.draw(sf::Vector2f(view.getSize().x, view.getSize().y));
 
     // objects with world position
     Game::win.setView(camera);

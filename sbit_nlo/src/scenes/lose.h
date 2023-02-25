@@ -7,8 +7,7 @@ class Lose : public State
 {
     sf::View view;
     Button exit;
-    static bool bExitPressed;
-    static void bExitCallback();
+    bool bExitPressed = false;
 
     int airship_passed;
     int airship_killed;

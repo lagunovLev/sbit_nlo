@@ -8,11 +8,9 @@ class Pause : public State
 {
     sf::View view;
     Button b_continue;
-    static bool bContinuePressed;
-    static void bContinueCallback();
+    bool bContinuePressed = false;
     Button exit;
-    static bool bExitPressed;
-    static void bExitCallback();
+    bool bExitPressed = false;
 public:
     Pause() { }
     void start() override;

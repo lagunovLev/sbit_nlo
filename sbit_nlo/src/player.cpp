@@ -56,14 +56,18 @@ void Player::getDamage(float damage)
 	time = 0;
 }
 
-void Player::handleEvents(sf::Event e)
+void Player::handleEvents(sf::Event e, sf::View view)
 {
 	if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left)
 	{
-		sf::Vector2f mousePos = sf::Vector2f(e.mouseButton.x, e.mouseButton.y);
+		float scaleX = Game::win.getSize().x / view.getSize().x;
+		float scaleY = Game::win.getSize().y / view.getSize().y;
+		sf::Vector2f mousePos = sf::Vector2f(e.mouseButton.x / scaleX, e.mouseButton.y / scaleY);
+
 		float spawn_y_offset = sprite.getGlobalBounds().height;
-		sf::Vector2f pos = sf::Vector2f(((MainGame*)Game::top())->camera.getSize().x / 2, ((MainGame*)Game::top())->camera.getSize().y / 2) + 
-			 (sprite.getPosition() - ((MainGame*)Game::top())->camera.getCenter()) - sf::Vector2f(0, spawn_y_offset); // TODO 
+		sf::Vector2f pos = sf::Vector2f(((MainGame*)Game::top())->camera.getSize().x / 2, 
+			((MainGame*)Game::top())->camera.getSize().y / 2 - spawn_y_offset) +
+			 (sprite.getPosition() - ((MainGame*)Game::top())->camera.getCenter()); 
 		sf::Vector2f dir = GameMath::norm(mousePos - pos);
 		dir.x *= BULLET_SPEED;
 		dir.y *= BULLET_SPEED;

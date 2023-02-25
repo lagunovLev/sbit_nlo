@@ -9,11 +9,9 @@ class Lobby : public State
     sf::View view;
     Background sky;
     Button play;
-    static bool bPlayPressed;
-    static void bPlayCallback();
+    bool bPlayPressed = false;
     Button exit;
-    static bool bExitPressed;
-    static void bExitCallback();
+    bool bExitPressed = false;
 public:
     Lobby() { }
     void start() override;

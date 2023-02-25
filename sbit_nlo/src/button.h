@@ -19,7 +19,7 @@ public:
     sf::Sprite sprite;
     Button(std::string text, std::function<void()> callback, sf::Vector2f pos, int characterSize = 17, float scale = 2.0f, std::string path = "resources\\button.png");
     Button() { }
-    bool handleEvent(sf::Event e);
+    bool handleEvent(sf::Event e, sf::View view);
     void draw();
     void updatePos(sf::Vector2f pos);
 };

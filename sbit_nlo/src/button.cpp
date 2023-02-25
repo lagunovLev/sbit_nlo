@@ -20,11 +20,22 @@ Button::Button(std::string text, std::function<void()> callback, sf::Vector2f po
     updatePos(pos);
 }
 
-bool Button::handleEvent(sf::Event e)
+bool Button::handleEvent(sf::Event e, sf::View view)
 {
+    float scaleX = Game::win.getSize().x / view.getSize().x;
+    float scaleY = Game::win.getSize().y / view.getSize().y;
+    sf::Vector2f location;
+    if (e.type == sf::Event::MouseMoved)
+        location = sf::Vector2f(e.mouseMove.x / scaleX, e.mouseMove.y / scaleY);
+    else
+    {
+        sf::Vector2i cursorPos = sf::Mouse::getPosition(Game::win);
+        location = sf::Vector2f(cursorPos.x / scaleX, cursorPos.y / scaleY);
+    }
+
     if (e.type == sf::Event::MouseMoved && state != Pressed)
     {
-        if (sprite.getGlobalBounds().contains(sf::Vector2f(e.mouseMove.x, e.mouseMove.y))) state = Hovered;
+        if (sprite.getGlobalBounds().contains(location)) state = Hovered;
         else state = Usual;
         return true;
     }
@@ -35,8 +46,7 @@ bool Button::handleEvent(sf::Event e)
     }
     if (e.type == sf::Event::MouseButtonReleased && e.mouseButton.button == sf::Mouse::Left && state == Pressed)
     {
-        sf::Vector2i cursorPos = sf::Mouse::getPosition(Game::win);
-        if (sprite.getGlobalBounds().contains(sf::Vector2f(cursorPos.x, cursorPos.y)))
+        if (sprite.getGlobalBounds().contains(location))
         {
             callback();
             state = Hovered;

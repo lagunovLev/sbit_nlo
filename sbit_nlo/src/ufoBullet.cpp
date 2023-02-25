@@ -18,6 +18,7 @@ void UFOBullet::checkBounds()
 
 UFOBullet::UFOBullet(sf::Vector2f pos, sf::Vector2f dir, float speed) : speed(speed), pos(pos), dir(dir)
 {
+	hp = maxhp = 0;
 	shape.setSize(sf::Vector2f(5, 20));
 	shape.setFillColor(sf::Color(0, 200, 0, 255));
 	shape.setOrigin(shape.getSize().x / 2, shape.getSize().y / 2);

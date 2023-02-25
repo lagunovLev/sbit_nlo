@@ -7,7 +7,6 @@ class Background
 public:
 	Background(sf::Texture& texture);
 	Background() { };
-	void update(sf::Vector2f winSize);
-	void draw();
+	void draw(sf::Vector2f size);
 };
 

@@ -7,17 +7,14 @@ Background::Background(sf::Texture& texture)
 	sprite.setTexture(texture);
 }
 
-void Background::update(sf::Vector2f winSize)
+void Background::draw(sf::Vector2f size)
 {
-	float scaleX = winSize.x / sprite.getTexture()->getSize().x;
-	float scaleY = winSize.y / sprite.getTexture()->getSize().y;
+	float scaleX = size.x / sprite.getTexture()->getSize().x;
+	float scaleY = size.y / sprite.getTexture()->getSize().y;
 	if (scaleX > scaleY)
 		sprite.setScale(sf::Vector2f(scaleX, scaleX));
-	else 
+	else
 		sprite.setScale(sf::Vector2f(scaleY, scaleY));
-}
 
-void Background::draw()
-{
 	Game::win.draw(sprite);
 }

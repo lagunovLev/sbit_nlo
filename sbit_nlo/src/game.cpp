@@ -10,6 +10,9 @@ float Game::elapsedSeconds;
 State* Game::replace_pointer = nullptr;
 bool Game::replace_or_push;
 
+float Game::width = 1200;
+float Game::height = 850;
+
 void Game::run(State* startstate)
 {
     m_push(startstate);

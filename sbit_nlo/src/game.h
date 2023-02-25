@@ -16,6 +16,9 @@ class Game
     static bool replace_or_push;
     static void check();
 public:
+    static float width;
+    static float height;
+
     static float elapsedSeconds;
     static sf::RenderWindow win;
 

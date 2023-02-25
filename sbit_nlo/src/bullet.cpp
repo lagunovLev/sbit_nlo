@@ -12,6 +12,7 @@
 
 Bullet::Bullet(sf::Vector2f pos, sf::Vector2f dir, float size)
 {
+	hp = maxhp = 0;
 	this->pos = pos;
 	this->dir = dir;
 	this->size = size;

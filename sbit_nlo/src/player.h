@@ -14,7 +14,7 @@ public:
 	Player() { };
 	void draw() override;
 	void update() override;
-	void handleEvents(sf::Event e);
+	void handleEvents(sf::Event e, sf::View view);
 	bool inBounds(sf::Vector2f pos) override;
 	sf::FloatRect getBounds() override;
 	void destroy() override { }
